@@ -4,7 +4,7 @@
 	/**
 	 * @type string
 	 */
-	export let cinemaType;
+	export let LearningStyleType;
 	/**
 	 * @type Array<string>
 	 */
@@ -73,11 +73,14 @@
 		'Zombie'
 	];
 
-	let cinemaTypes = [
-		{ value: 'tv show', title: 'TV Show' },
-		{ value: 'movie', title: 'Movie' },
-		{ value: 'tv show or movie', title: 'No Preference' }
-	];
+	let LearningStyleTypes = [
+  { value: 'visual', title: 'Visual' },
+  { value: 'auditivo', title: 'Auditivo' },
+  { value: 'lectura/escritura', title: 'Lectura/Escritura' },
+  { value: 'kinestésico', title: 'Kinestésico' },
+  { value: 'sin preferencia', title: 'Sin Preferencia' }
+];
+
 </script>
 
 <div class="pt-6 md:pt-10 text-slate-200">
@@ -85,13 +88,13 @@
 		<div class="mb-8">
 			<div class="mb-4 font-semibold text-lg">What kind of cinema are you searching for?</div>
 			<div class="flex items-center">
-				{#each cinemaTypes as type (type.value)}
+				{#each LearningStyleTypes as type (type.value)}
 					<button
 						on:click={() => {
-							cinemaType = type.value;
+							LearningStyleType = type.value;
 						}}
 						class={`${
-							cinemaType === type.value ? 'bg-pink-600/40' : ''
+							LearningStyleType === type.value ? 'bg-pink-600/40' : ''
 						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
 					>
 						{type.title}

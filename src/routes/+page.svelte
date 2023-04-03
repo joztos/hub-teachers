@@ -48,7 +48,7 @@
 	/**
 	 * @type {string}
 	 */
-	let cinemaType = 'tv show';
+	let LearningStyleType = 'visual';
 	/**
 	 * @type {Array<string>}
 	 */
@@ -62,7 +62,7 @@
 		endStream = false;
 		loading = true;
 
-		let fullSearchCriteria = `Give me a list of 5 ${cinemaType} recommendations ${
+		let fullSearchCriteria = `Give me a list of 5 ${LearningStyleType} recommendations ${
 			selectedCategories ? `that fit all of the following categories: ${selectedCategories}` : ''
 		}. ${
 			specificDescriptors
@@ -70,9 +70,9 @@
 				: ''
 		} ${
 			selectedCategories || specificDescriptors
-				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${cinemaType}'s that I might like.`
+				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${LearningStyleType}'s that I might like.`
 				: ''
-		} Please return this response as a numbered list with the ${cinemaType}'s title, followed by a colon, and then a brief description of the ${cinemaType}. There should be a line of whitespace between each item in the list.`;
+		} Please return this response as a numbered list with the ${LearningStyleType}'s title, followed by a colon, and then a brief description of the ${LearningStyleType}. There should be a line of whitespace between each item in the list.`;
 		const response = await fetch('/api/getRecommendation', {
 			method: 'POST',
 			body: JSON.stringify({ searched: fullSearchCriteria }),
@@ -114,7 +114,7 @@
 		recommendations = [];
 		searchResponse = '';
 		endStream = false;
-		cinemaType = 'tv show';
+		LearningStyleType = 'visual';
 		selectedCategories = [];
 		specificDescriptors = '';
 	}
@@ -151,7 +151,7 @@
 			<div in:fade class="w-full max-w-4xl mx-auto">
 				<div class="w-full mb-8">
 					<Form
-						bind:cinemaType
+						bind:LearningStyleType
 						bind:selectedCategories
 						bind:loading
 						bind:specificDescriptors
