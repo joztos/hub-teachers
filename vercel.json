@@ -2,11 +2,11 @@
 	"redirects": [
 		{
 			"source": "/deploy",
-			"destination": "https://vercel.com/templates/svelte/watch-this"
+			"destination": "https://samasat.com/"
 		},
 		{
 			"source": "/github",
-			"destination": "https://github.com/StephDietz/watch-this"
+			"destination": "https://github.com/joztos"
 		}
 	]
 }
