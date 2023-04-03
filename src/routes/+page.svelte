@@ -62,17 +62,18 @@
 		endStream = false;
 		loading = true;
 
-		let fullSearchCriteria = `GIVE ME A LESSON PLAN WITH 5 MODULES OF ${selectedCategories} MAKE SURE IT FITS THE FOLLOWING ${LearningStyleType} SELECTION` : ''
+		let fullSearchCriteria = `Give me a list of 5 ${selectedCategories} modules ${
+			LearningStyleType ? `that fit the following: ${LearningStyleType}` : ''
 			
 		}. ${
 			specificDescriptors
-				? `Make sure it fits the following SUBJECT: ${specificDescriptors}.`
+				? `Make sure it fits the following subject as well: ${specificDescriptors}.`
 				: ''
 		} ${
 			selectedCategories || specificDescriptors
-				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${LearningStyleType}'s that I might like.`
+				? `If you do not have 5 modules that fit these criteria perfectly, do your best to suggest other ${LearningStyleType}'s that I might like.`
 				: ''
-		} Please return this response as a numbered list with the ${LearningStyleType}'s title, followed by a colon, and then a brief description of the ${LearningStyleType}. There should be a line of whitespace between each item in the list.`;
+		} Please return this response as a numbered list with the ${selectedCategories}'s title, followed by a colon, and then description of the ${selectedCategories}. There should be a line of whitespace between each item in the list.`;
 		const response = await fetch('/api/getRecommendation', {
 			method: 'POST',
 			body: JSON.stringify({ searched: fullSearchCriteria }),
