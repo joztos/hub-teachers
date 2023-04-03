@@ -19,59 +19,28 @@
 	export let loading;
 
 	const categoryTypes = [
-		'Action',
-		'Adventure',
-		'Animation',
-		'Biography',
-		'Comedy',
-		'Crime',
-		'Documentary',
-		'Drama',
-		'Family',
-		'Fantasy',
-		'Film-Noir',
-		'History',
-		'Horror',
-		'Musical',
-		'Mystery',
-		'Romance',
-		'Sci-Fi',
-		'Sport',
-		'Thriller',
-		'War',
-		'Western',
-		'Art-house',
-		'Black-Comedy',
-		'Chick-flick',
-		'Cult-classic',
-		'Dark-Comedy',
-		'Epic',
-		'Erotic',
-		'Experimental',
-		'Fairy-tale',
-		'Film-within-a-film',
-		'Futuristic',
-		'Gangster',
-		'Heist',
-		'Historical',
-		'Holiday',
-		'Indie',
-		'Juvenile',
-		'Melodrama',
-		'Monster',
-		'Political',
-		'Psychological',
-		'Road-movie',
-		'Satire',
-		'Science-Fiction',
-		'Slapstick',
-		'Social-issue',
-		'Superhero',
-		'Surreal',
-		'Teen',
-		'Vampire',
-		'Zombie'
-	];
+  'Objetivos de la clase',
+  'Actividades',
+  'Evaluación',
+  'Materiales requeridos',
+  'Recursos adicionales',
+  'Tiempo estimado',
+  'Habilidades a desarrollar',
+  'Competencias a desarrollar',
+  'Estrategias de enseñanza',
+  'Métodos de evaluación',
+  'Requisitos previos',
+  'Evaluación del aprendizaje',
+  'Retroalimentación',
+  'Aprendizaje colaborativo',
+  'Aprendizaje autónomo',
+  'Enfoque interdisciplinario',
+  'Aprendizaje basado en proyectos',
+  'Aprendizaje basado en problemas',
+  'Aprendizaje activo',
+  'Aprendizaje en línea',
+  'Aprendizaje híbrido'
+];
 
 	let LearningStyleTypes = [
   { value: 'visual', title: 'Visual' },
@@ -86,7 +55,7 @@
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
 		<div class="mb-8">
-			<div class="mb-4 font-semibold text-lg">What kind of cinema are you searching for?</div>
+			<div class="mb-4 font-semibold text-lg">Elige un estilo de aprendizaje</div>
 			<div class="flex items-center">
 				{#each LearningStyleTypes as type (type.value)}
 					<button
@@ -104,7 +73,7 @@
 		</div>
 		<div>
 			<div class="mb-4 font-semibold text-lg">
-				Select all categories that you want the show or movie to include.
+				Selecciona los modulos de tu planeación de clase.
 			</div>
 			<div class="flex items-center flex-wrap">
 				{#each categoryTypes as category}
@@ -127,12 +96,12 @@
 		</div>
 		<div class="mt-8">
 			<div class="mb-4 font-semibold text-lg">
-				Write any other specifications here. Be as picky as you'd like.
+				Elige un tema de tu elección para generar la planeación de clase.
 			</div>
 			<textarea
 				bind:value={specificDescriptors}
 				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
-				placeholder="Ex. Must have at least 2 seasons and be on Netflix or Hulu."
+				placeholder="Por ejemplo, El capitalismo en el siglo XXI."
 			/>
 			<button
 				on:click
@@ -145,7 +114,7 @@
 				{#if loading}
 					<LoadingIndicator />
 				{:else}
-					<p>Curate My List</p>
+					<p>Generar mi clase</p>
 				{/if}
 			</button>
 		</div>
