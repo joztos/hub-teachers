@@ -62,10 +62,11 @@
 		endStream = false;
 		loading = true;
 
-		let fullSearchCriteria = `Give me a lesson planning list of 5 ${selectedCategories} taking into account the ${LearningStyleType}` : ''
+		let fullSearchCriteria = `GIVE ME A LESSON PLAN WITH 5 MODULES OF ${selectedCategories} MAKE SURE IT FITS THE FOLLOWING ${LearningStyleType} SELECTION` : ''
+			
 		}. ${
 			specificDescriptors
-				? `Make sure that the class planning and its modules are based on: ${specificDescriptors}.`
+				? `Make sure it fits the following SUBJECT: ${specificDescriptors}.`
 				: ''
 		} ${
 			selectedCategories || specificDescriptors
