@@ -41,7 +41,7 @@ let GradeLevels = [
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
 		<div class="mb-8">
-			<div class="mb-4 font-semibold text-lg">Elige el grado escolar</div>
+			<div class="mb-4 font-semibold text-lg">Select the grade level for your lesson planning</div>
 			<div class="flex items-center">
 				{#each GradeLevels as type (type.value)}
 					<button
@@ -59,7 +59,7 @@ let GradeLevels = [
 		</div>
 		<div>
 			<div class="mb-4 font-semibold text-lg">
-				Selecciona los modulos de tu planeación de clase.
+				Select teaching style.
 			</div>
 			<div class="flex items-center flex-wrap">
 				{#each categoryTypes as category}
@@ -82,7 +82,7 @@ let GradeLevels = [
 		</div>
 		<div class="mt-8">
 			<div class="mb-4 font-semibold text-lg">
-				Elige un tema de tu elección para generar la planeación de clase.
+				Choose a topic of your choice to generate the lesson plan.
 			</div>
 			<textarea
 				bind:value={specificDescriptors}
