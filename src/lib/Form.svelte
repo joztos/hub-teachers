@@ -6,6 +6,10 @@
 	 */
 	export let GradeLevel;
 	/**
+	 * @type Array<string>
+	 */
+	export let selectedCategories;
+	/**
 	 * @type string
 	 */
 	export let specificDescriptors;
@@ -14,20 +18,44 @@
 	 */
 	export let loading;
 
-	let GradeLevels = [
-		{ value: '1st grade', title: '1st grade' },
-		{ value: '2nd grade', title: '2nd grade' },
-		{ value: '3rd grade', title: '3rd grade' },
-		{ value: '4th grade', title: '4th grade' },
-		{ value: '5th grade', title: '5th grade' },
-		{ value: '6th grade', title: '6th grade' },
-		{ value: '7th grade', title: '7th grade' },
-		{ value: '8th grade', title: '8th grade' },
-		{ value: '9th grade', title: '9th grade' },
-		{ value: '10th grade', title: '10th grade' },
-		{ value: '11th grade', title: '11th grade' },
-		{ value: '12th grade', title: '12th grade' }
-	];
+	const categoryTypes = [
+		'Class objectives',
+'Activities',
+'Evaluation',
+'Required materials',
+'Additional resources',
+'Estimated time',
+'Skills to develop',
+'Competencies to develop',
+'Teaching strategies',
+'Evaluation methods',
+'Prerequisites',
+'Learning assessment',
+'Feedback',
+'Collaborative learning',
+'Self-directed learning',
+'Interdisciplinary approach',
+'Project-based learning',
+'Problem-based learning',
+'Active learning',
+'Online learning',
+'Hybrid learning'
+];
+
+let GradeLevels = [
+{ value: '1st grade', title: '1st grade' },
+{ value: '2nd grade', title: '2nd grade' },
+{ value: '3rd grade', title: '3rd grade' },
+{ value: '4th grade', title: '4th grade' },
+{ value: '5th grade', title: '5th grade' },
+{ value: '6th grade', title: '6th grade' },
+{ value: '7th grade', title: '7th grade' },
+{ value: '8th grade', title: '8th grade' },
+{ value: '9th grade', title: '9th grade' },
+{ value: '10th grade', title: '10th grade' },
+{ value: '11th grade', title: '11th grade' },
+{ value: '12th grade', title: '12th grade' }
+];
 
 </script>
 
@@ -47,6 +75,29 @@
 					>
 						{type.title}
 					</button>
+				{/each}
+			</div>
+		</div>
+		<div>
+			<div class="mb-4 font-semibold text-lg">
+				Select the modules for you lesson plan.
+			</div>
+			<div class="flex items-center flex-wrap">
+				{#each categoryTypes as category}
+					<label
+						class={`${
+							selectedCategories.includes(category) ? 'bg-pink-600/40' : ''
+						} text-slate-200 font-bold mr-2 mt-2 text-sm py-2 px-4 rounded-full border border-pink-600`}
+					>
+						<input
+							class="hidden"
+							type="checkbox"
+							bind:group={selectedCategories}
+							name="categories"
+							value={category}
+						/>
+						{category}
+					</label>
 				{/each}
 			</div>
 		</div>
