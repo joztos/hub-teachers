@@ -19,42 +19,42 @@
 	export let loading;
 
 	const categoryTypes = [
-		'Class objectives',
-'Activities',
-'Evaluation',
-'Required materials',
-'Additional resources',
-'Estimated time',
-'Skills to develop',
-'Competencies to develop',
-'Teaching strategies',
-'Evaluation methods',
-'Prerequisites',
-'Learning assessment',
-'Feedback',
-'Collaborative learning',
-'Self-directed learning',
-'Interdisciplinary approach',
-'Project-based learning',
-'Problem-based learning',
-'Active learning',
-'Online learning',
-'Hybrid learning'
+  'Objetivos de la clase',
+  'Actividades',
+  'Evaluación',
+  'Materiales requeridos',
+  'Recursos adicionales',
+  'Tiempo estimado',
+  'Habilidades a desarrollar',
+  'Competencias a desarrollar',
+  'Estrategias de enseñanza',
+  'Métodos de evaluación',
+  'Requisitos previos',
+  'Evaluación del aprendizaje',
+  'Retroalimentación',
+  'Aprendizaje colaborativo',
+  'Aprendizaje autónomo',
+  'Enfoque interdisciplinario',
+  'Aprendizaje basado en proyectos',
+  'Aprendizaje basado en problemas',
+  'Aprendizaje activo',
+  'Aprendizaje en línea',
+  'Aprendizaje híbrido'
 ];
 
 let GradeLevels = [
-{ value: '1st grade', title: '1st grade' },
-{ value: '2nd grade', title: '2nd grade' },
-{ value: '3rd grade', title: '3rd grade' },
-{ value: '4th grade', title: '4th grade' },
-{ value: '5th grade', title: '5th grade' },
-{ value: '6th grade', title: '6th grade' },
-{ value: '7th grade', title: '7th grade' },
-{ value: '8th grade', title: '8th grade' },
-{ value: '9th grade', title: '9th grade' },
-{ value: '10th grade', title: '10th grade' },
-{ value: '11th grade', title: '11th grade' },
-{ value: '12th grade', title: '12th grade' }
+  { value: 'Primero de primaria', title: 'Primero de primaria' },
+  { value: 'Segundo de primaria', title: 'Segundo de primaria' },
+  { value: 'Tercero de primaria', title: 'Tercero de primaria' },
+  { value: 'Cuarto de primaria', title: 'Cuarto de primaria' },
+  { value: 'Quinto de primaria', title: 'Quinto de primaria' },
+  { value: 'Sexto de primaria', title: 'Sexto de primaria' },
+  { value: 'Primero de secundaria', title: 'Primero de secundaria' },
+  { value: 'Segundo de secundaria', title: 'Segundo de secundaria' },
+  { value: 'Tercero de secundaria', title: 'Tercero de secundaria' },
+  { value: 'Primero de preparatoria', title: 'Primero de preparatoria' },
+  { value: 'Segundo de preparatoria', title: 'Segundo de preparatoria' },
+  { value: 'Tercero de preparatoria', title: 'Tercero de preparatoria' }
 ];
 
 </script>
@@ -62,7 +62,7 @@ let GradeLevels = [
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
 		<div class="mb-8">
-			<div class="mb-4 font-semibold text-lg">Select your student School level</div>
+			<div class="mb-4 font-semibold text-lg">Elige el grado escolar</div>
 			<div class="flex items-center">
 				{#each GradeLevels as type (type.value)}
 					<button
@@ -80,7 +80,7 @@ let GradeLevels = [
 		</div>
 		<div>
 			<div class="mb-4 font-semibold text-lg">
-				Select the modules for you lesson plan.
+				Selecciona los modulos de tu planeación de clase.
 			</div>
 			<div class="flex items-center flex-wrap">
 				{#each categoryTypes as category}
@@ -103,7 +103,7 @@ let GradeLevels = [
 		</div>
 		<div class="mt-8">
 			<div class="mb-4 font-semibold text-lg">
-				Choose a topic of your choice to generate the lesson plan.
+				Elige un tema de tu elección para generar la planeación de clase.
 			</div>
 			<textarea
 				bind:value={specificDescriptors}
@@ -121,7 +121,7 @@ let GradeLevels = [
 				{#if loading}
 					<LoadingIndicator />
 				{:else}
-					<p>Create lesson plan</p>
+					<p>Generar mi clase</p>
 				{/if}
 			</button>
 		</div>
