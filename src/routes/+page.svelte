@@ -54,6 +54,7 @@
 	 * @type {Array<string>}
 	 */
 	let selectedCategories = [];
+	let GradeLevel = "1st grade" ;
 	let specificDescriptors = '';
 
 	async function search() {
