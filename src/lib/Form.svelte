@@ -19,42 +19,27 @@
 	export let loading;
 
 	const categoryTypes = [
-  'Objetivos de la clase',
-  'Actividades',
-  'Evaluación',
-  'Materiales requeridos',
-  'Recursos adicionales',
-  'Tiempo estimado',
-  'Habilidades a desarrollar',
-  'Competencias a desarrollar',
-  'Estrategias de enseñanza',
-  'Métodos de evaluación',
-  'Requisitos previos',
-  'Evaluación del aprendizaje',
-  'Retroalimentación',
-  'Aprendizaje colaborativo',
-  'Aprendizaje autónomo',
-  'Enfoque interdisciplinario',
-  'Aprendizaje basado en proyectos',
-  'Aprendizaje basado en problemas',
-  'Aprendizaje activo',
-  'Aprendizaje en línea',
-  'Aprendizaje híbrido'
+  'Project-based learning',
+  'Personalized teaching',
+  'Flipped classroom',
+  'Collaborative learning',
+  'Competency-based learning'
 ];
 
+
 let GradeLevels = [
-  { value: 'Primero de primaria', title: 'Primero de primaria' },
-  { value: 'Segundo de primaria', title: 'Segundo de primaria' },
-  { value: 'Tercero de primaria', title: 'Tercero de primaria' },
-  { value: 'Cuarto de primaria', title: 'Cuarto de primaria' },
-  { value: 'Quinto de primaria', title: 'Quinto de primaria' },
-  { value: 'Sexto de primaria', title: 'Sexto de primaria' },
-  { value: 'Primero de secundaria', title: 'Primero de secundaria' },
-  { value: 'Segundo de secundaria', title: 'Segundo de secundaria' },
-  { value: 'Tercero de secundaria', title: 'Tercero de secundaria' },
-  { value: 'Primero de preparatoria', title: 'Primero de preparatoria' },
-  { value: 'Segundo de preparatoria', title: 'Segundo de preparatoria' },
-  { value: 'Tercero de preparatoria', title: 'Tercero de preparatoria' }
+  { value: 'First grade', title: 'First grade' },
+  { value: 'Second grade', title: 'Second grade' },
+  { value: 'Third grade', title: 'Third grade' },
+  { value: 'Fourth grade', title: 'Fourth grade' },
+  { value: 'Fifth grade', title: 'Fifth grade' },
+  { value: 'Sixth grade', title: 'Sixth grade' },
+  { value: 'Seventh grade', title: 'Seventh grade' },
+  { value: 'Eighth grade', title: 'Eighth grade' },
+  { value: 'Ninth grade', title: 'Ninth grade' },
+  { value: 'Tenth grade', title: 'Tenth grade' },
+  { value: 'Eleventh grade', title: 'Eleventh grade' },
+  { value: 'Twelfth grade', title: 'Twelfth grade' }
 ];
 
 </script>
