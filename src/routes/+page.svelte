@@ -48,7 +48,7 @@
 	/**
 	 * @type {string}
 	 */
-	let LearningStyleType = 'visual';
+	let GradeLevel = 'Primero de primaria';
 	/**
 	 * @type {Array<string>}
 	 */
@@ -63,7 +63,7 @@
 		loading = true;
 
 		let fullSearchCriteria = `Give me a list of 5 ${selectedCategories} modules ${
-			LearningStyleType ? `that fit the following: ${LearningStyleType}` : ''
+			GradeLevel ? `that fit the following: ${GradeLevel}` : ''
 			
 		}. ${
 			specificDescriptors
@@ -71,7 +71,7 @@
 				: ''
 		} ${
 			selectedCategories || specificDescriptors
-				? `If you do not have 5 modules that fit these criteria perfectly, do your best to suggest other ${LearningStyleType}'s that I might like.`
+				? `If you do not have 5 modules that fit these criteria perfectly, do your best to suggest other ${GradeLevel}'s that I might like.`
 				: ''
 		} Please return this response as a numbered list with the ${selectedCategories}'s title, followed by a colon, and then description of the ${selectedCategories}. There should be a line of whitespace between each item in the list.`;
 		const response = await fetch('/api/getRecommendation', {
@@ -115,7 +115,7 @@
 		recommendations = [];
 		searchResponse = '';
 		endStream = false;
-		LearningStyleType = 'visual';
+		GradeLevel = 'Primero de primaria';
 		selectedCategories = [];
 		specificDescriptors = '';
 	}
@@ -152,7 +152,7 @@
 			<div in:fade class="w-full max-w-4xl mx-auto">
 				<div class="w-full mb-8">
 					<Form
-						bind:LearningStyleType
+						bind:GradeLevel
 						bind:selectedCategories
 						bind:loading
 						bind:specificDescriptors

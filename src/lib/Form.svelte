@@ -4,7 +4,7 @@
 	/**
 	 * @type string
 	 */
-	export let LearningStyleType;
+	export let GradeLevel;
 	/**
 	 * @type Array<string>
 	 */
@@ -42,12 +42,19 @@
   'Aprendizaje híbrido'
 ];
 
-	let LearningStyleTypes = [
-  { value: 'visual', title: 'Visual' },
-  { value: 'auditivo', title: 'Auditivo' },
-  { value: 'lectura/escritura', title: 'Lectura/Escritura' },
-  { value: 'kinestésico', title: 'Kinestésico' },
-  { value: 'sin preferencia', title: 'Sin Preferencia' }
+let GradeLevels = [
+  { value: 'Primero de primaria', title: 'Primero de primaria' },
+  { value: 'Segundo de primaria', title: 'Segundo de primaria' },
+  { value: 'Tercero de primaria', title: 'Tercero de primaria' },
+  { value: 'Cuarto de primaria', title: 'Cuarto de primaria' },
+  { value: 'Quinto de primaria', title: 'Quinto de primaria' },
+  { value: 'Sexto de primaria', title: 'Sexto de primaria' },
+  { value: 'Primero de secundaria', title: 'Primero de secundaria' },
+  { value: 'Segundo de secundaria', title: 'Segundo de secundaria' },
+  { value: 'Tercero de secundaria', title: 'Tercero de secundaria' },
+  { value: 'Primero de preparatoria', title: 'Primero de preparatoria' },
+  { value: 'Segundo de preparatoria', title: 'Segundo de preparatoria' },
+  { value: 'Tercero de preparatoria', title: 'Tercero de preparatoria' }
 ];
 
 </script>
@@ -57,13 +64,13 @@
 		<div class="mb-8">
 			<div class="mb-4 font-semibold text-lg">Elige un estilo de aprendizaje</div>
 			<div class="flex items-center">
-				{#each LearningStyleTypes as type (type.value)}
+				{#each GradeLevels as type (type.value)}
 					<button
 						on:click={() => {
-							LearningStyleType = type.value;
+							GradeLevel = type.value;
 						}}
 						class={`${
-							LearningStyleType === type.value ? 'bg-pink-600/40' : ''
+							GradeLevel === type.value ? 'bg-pink-600/40' : ''
 						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
 					>
 						{type.title}
