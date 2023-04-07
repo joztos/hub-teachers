@@ -65,16 +65,16 @@
 		loading = true;
 
 		let fullSearchCriteria = `Give me a list of 5 ${type} recommendations ${
-			selectedCategories ? `that fit all of the following categories: ${selectedCategories}` : ''
+			selectedCategories ? `that fit all of the following learning style categories: ${selectedCategories}` : ''
 		}. ${
 			specificDescriptors
-				? `Make sure it fits the following description as well: ${specificDescriptors}.`
+				? `Make sure the lesson plan fits the following topic as well: ${specificDescriptors}.`
 				: ''
 		} ${
 			selectedCategories || specificDescriptors
 				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${type}'s that I might like.`
 				: ''
-		} I am going to create lesson plan generator. Please return lesson plan response as a numbered list with the ${type}'s title, and then a brief description of the ${type}. There should be a line of whitespace between each item in the list.`;
+		} I am going to create lesson plan generator. Please return lesson plan response as a numbered list with the ${selectedCategories}'s title, and then a full description of the ${selectedCategories}. There should be a line of whitespace between each item in the list.`;
 
 		const response = await fetch('/api/getRecommendation', {
 			method: 'POST',
