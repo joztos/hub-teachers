@@ -48,7 +48,7 @@
 	/**
 	 * @type {string}
 	 */
-	let GradeLevel = 'Primero de primaria';
+	let GradeLevel = 'Primero';
 	/**
 	 * @type {Array<string>}
 	 */
@@ -115,7 +115,7 @@
 		recommendations = [];
 		searchResponse = '';
 		endStream = false;
-		GradeLevel = 'Primero de primaria';
+		GradeLevel = '1st grade';
 		selectedCategories = [];
 		specificDescriptors = '';
 	}
