@@ -34,12 +34,6 @@ let GradeLevels = [
   { value: 'Fourth grade', title: 'Fourth grade' },
   { value: 'Fifth grade', title: 'Fifth grade' },
   { value: 'Sixth grade', title: 'Sixth grade' },
-  { value: 'Seventh grade', title: 'Seventh grade' },
-  { value: 'Eighth grade', title: 'Eighth grade' },
-  { value: 'Ninth grade', title: 'Ninth grade' },
-  { value: 'Tenth grade', title: 'Tenth grade' },
-  { value: 'Eleventh grade', title: 'Eleventh grade' },
-  { value: 'Twelfth grade', title: 'Twelfth grade' }
 ];
 
 </script>
