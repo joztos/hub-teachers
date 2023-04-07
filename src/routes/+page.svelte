@@ -33,7 +33,7 @@
 
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
-		<div class="mt-8">
+		<div>
 			<div class="mb-4 font-semibold text-lg">
 				Choose a topic of your choice to generate the lesson plan.
 			</div>
@@ -78,3 +78,4 @@
 		</div>
 	</div>
 </div>
+``
