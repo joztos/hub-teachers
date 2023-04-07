@@ -49,7 +49,7 @@
 	 * @type {string}
 	 */
 	
-	let type = 'Student Lession Generation';
+	let type = 'student lesson';
 	/**
 	 * @type {Array<string>}
 	 */
