@@ -1,205 +1,80 @@
 <script>
-	import * as animateScroll from 'svelte-scrollto';
-	import { fade } from 'svelte/transition';
-	import Form from '$lib/Form.svelte';
-	import Home from '$lib/Home.svelte';
-	import Footer from '$lib/Footer.svelte';
-	import Header from '$lib/Header.svelte';
-	import RecommendationCard from '$lib/RecommendationCard.svelte';
-	import { onMount } from 'svelte';
-	import LoadingCard from '$lib/LoadingCard.svelte';
-	let loading = false;
-	let error = '';
-	let endStream = false;
-	let makeRecommendation = false;
+	import LoadingIndicator from './Loading.svelte';
 
 	/**
-	 * @type {string}
+	 * @type string
 	 */
-	let searchResponse = '';
+	export let GradeLevel;
 	/**
-	 * @type {Array<string | {title: string, description: string}>}
+	 * @type string
 	 */
-	let recommendations = [];
-
+	export let specificDescriptors;
 	/**
-	 * @param {string} target
+	 * @type Boolean
 	 */
+	export let loading;
 
-	$: {
-		if (searchResponse) {
-			let lastLength = recommendations.length;
-			let x = searchResponse?.split('\n');
-			recommendations = x.map((d, i) => {
-				if ((x.length - 1 > i || endStream) && d !== '') {
-					// @ts-ignore
-					const [, title, description] = d.match(/\d\.\s*(.*?):\s*(.*)/);
-					return { title, description };
-				} else {
-					return d;
-				}
-			});
-			if (recommendations.length > lastLength) {
-				animateScroll.scrollToBottom({ duration: 1500 });
-			}
-		}
-	}
+	let GradeLevels = [
+		{ value: '1st grade', title: '1st grade' },
+		{ value: '2nd grade', title: '2nd grade' },
+		{ value: '3rd grade', title: '3rd grade' },
+		{ value: '4th grade', title: '4th grade' },
+		{ value: '5th grade', title: '5th grade' },
+		{ value: '6th grade', title: '6th grade' },
+		{ value: '7th grade', title: '7th grade' },
+		{ value: '8th grade', title: '8th grade' },
+		{ value: '9th grade', title: '9th grade' },
+		{ value: '10th grade', title: '10th grade' },
+		{ value: '11th grade', title: '11th grade' },
+		{ value: '12th grade', title: '12th grade' }
+	];
 
-	/**
-	 * @type {string}
-	 */
-	
-	let type = 'student lesson generation';
-	/**
-	 * @type {Array<string>}
-	 */
-	let selectedCategories = [];
-	let GradeLevel = "1st grade" ;
-	let specificDescriptors = '';
-
-	async function search() {
-		if (loading) return;
-		recommendations = [];
-		searchResponse = '';
-		endStream = false;
-		loading = true;
-
-		let fullSearchCriteria = `Give me a list of 5 ${type} recommendations ${
-			selectedCategories ? `that fit all of the following categories: ${selectedCategories}` : ''
-		}. ${
-			specificDescriptors
-				? `Make sure it fits the following description as well: ${specificDescriptors}.`
-				: ''
-		} ${
-			selectedCategories || specificDescriptors
-				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${type}'s that I might like.`
-				: ''
-		} I am going to create lesson plan generator. Please return lesson plan response as a numbered list with the ${type}'s title, and then a brief description of the ${type}. There should be a line of whitespace between each item in the list.`;
-
-		const response = await fetch('/api/getRecommendation', {
-			method: 'POST',
-			body: JSON.stringify({ searched: fullSearchCriteria }),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
-
-		if (response.ok) {
-			try {
-				const data = response.body;
-				if (!data) {
-					return;
-				}
-
-				const reader = data.getReader();
-				const decoder = new TextDecoder();
-
-				while (true) {
-					const { value, done } = await reader.read();
-					const chunkValue = decoder.decode(value);
-
-					searchResponse += chunkValue;
-
-					if (done) {
-						endStream = true;
-						break;
-					}
-				}
-			} catch (err) {
-				error = 'Looks like OpenAI timed out :(';
-			}
-		} else {
-			error = await response.text();
-		}
-		loading = false;
-	}
-	function clearForm() {
-		recommendations = [];
-		searchResponse = '';
-		endStream = false;
-		GradeLevel = '1st grade';
-		selectedCategories = [];
-		specificDescriptors = '';
-	}
 </script>
 
-<div>
-	<div class="h-screen w-full bg-cover fixed" style="background-image: url(/background.png)">
-		<div
-			class={`${
-				makeRecommendation ? 'backdrop-blur-md' : ''
-			}  flex flex-col items-center justify-center min-h-screen w-full h-full bg-gradient-to-br from-slate-900/80 to-black/90`}
-		/>
-	</div>
-
-	<div class="absolute inset-0 px-6 flex flex-col h-screen overflor-auto">
-		<Header
-			on:click={() => {
-				makeRecommendation = false;
-			}}
-		/>
-
-		{#if !makeRecommendation}
-			<div
-				in:fade
-				class="flex-grow max-w-4xl mx-auto w-full md:pt-20  flex flex-col items-center justify-center"
+<div class="pt-6 md:pt-10 text-slate-200">
+	<div>
+		<div class="mt-8">
+			<div class="mb-4 font-semibold text-lg">
+				Choose a topic of your choice to generate the lesson plan.
+			</div>
+			<textarea
+				bind:value={specificDescriptors}
+				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
+				placeholder="Por ejemplo, El capitalismo en el siglo XXI."
+			/>
+		</div>
+		<div class="mb-8">
+			<div class="mb-4 font-semibold text-lg">Select your student School level</div>
+			<div class="flex items-center">
+				{#each GradeLevels as type (type.value)}
+					<button
+						on:click={() => {
+							GradeLevel = type.value;
+						}}
+						class={`${
+							GradeLevel === type.value ? 'bg-pink-600/40' : ''
+						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
+					>
+						{type.title}
+					</button>
+				{/each}
+			</div>
+		</div>
+		<div>
+			<button
+				on:click
+				class={`${
+					loading
+						? 'bg-pink-400/50'
+						: 'bg-pink-600 hover:bg-gradient-to-r from-pink-700 via-pink-600 to-pink-700 '
+				} mt-4 w-full h-10 text-white font-bold p-3 rounded-full flex items-center justify-center`}
 			>
-				<Home
-					on:click={() => {
-						makeRecommendation = true;
-					}}
-				/>
-			</div>
-		{:else}
-			<div in:fade class="w-full max-w-4xl mx-auto">
-				<div class="w-full mb-8">
-					<Form
-						bind:GradeLevel
-						bind:selectedCategories
-						bind:loading
-						bind:specificDescriptors
-						on:click={search}
-					/>
-					{#if recommendations.length > 0 && endStream}
-						<button
-							on:click={clearForm}
-							class="bg-white/20 hover:bg-white/30 mt-4 w-full h-10 text-white font-bold p-3 rounded-full flex items-center justify-center"
-						>
-							Clear Search
-						</button>
-					{/if}
-				</div>
-				<div class="md:pb-20 max-w-4xl mx-auto w-full">
-					{#if loading && !searchResponse && !recommendations}
-						<div class="fontsemibold text-lg text-center mt-8 mb-4">
-							Please be patient as I think. Good things are coming 😎.
-						</div>
-					{/if}
-					{#if error}
-						<div class="fontsemibold text-lg text-center mt-8 text-red-500">
-							Woops! {error}
-						</div>
-					{/if}
-					{#if recommendations}
-						{#each recommendations as recommendation, i (i)}
-							<div>
-								{#if recommendation !== ''}
-									<div class="mb-8">
-										{#if typeof recommendation !== 'string' && recommendation.title}
-											<RecommendationCard {recommendation} />
-										{:else}
-											<div in:fade>
-												<LoadingCard incomingStream={recommendation} />
-											</div>
-										{/if}
-									</div>
-								{/if}
-							</div>
-						{/each}
-					{/if}
-				</div>
-			</div>
-		{/if}
-		<Footer />
+				{#if loading}
+					<LoadingIndicator />
+				{:else}
+					<p>Create lesson plan</p>
+				{/if}
+			</button>
+		</div>
 	</div>
 </div>
