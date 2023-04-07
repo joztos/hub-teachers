@@ -62,7 +62,7 @@ let GradeLevels = [
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
 		<div class="mb-8">
-			<div class="mb-4 font-semibold text-lg">Elige un estilo de aprendizaje</div>
+			<div class="mb-4 font-semibold text-lg">Elige el grado escolar</div>
 			<div class="flex items-center">
 				{#each GradeLevels as type (type.value)}
 					<button
