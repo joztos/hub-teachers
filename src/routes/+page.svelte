@@ -64,16 +64,17 @@
 		endStream = false;
 		loading = true;
 
-		let fullSearchCriteria = `Give me a lesson plan with ${selectedCategories} style about ${specificDescriptors} for ${GradeLevel} students.`;
+		let fullSearchCriteria = `Give me a lesson plan with 5 subcategories about ${specificDescriptors}. Please return the lesson plan response as a numbered list with the subcategories of the lesson plan, and then a description of each subcategory. There should be a line of whitespace between each item in the list. I am going to create a lesson plan generator.`;
+
+const response = await fetch('/api/getRecommendation', {
+    method: 'POST',
+    body: JSON.stringify({ searched: fullSearchCriteria }),
+    headers: {
+        'content-type': 'application/json'
+    }
+});
 
 
-		const response = await fetch('/api/getRecommendation', {
-			method: 'POST',
-			body: JSON.stringify({ searched: fullSearchCriteria }),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
 
 		if (response.ok) {
 			try {
