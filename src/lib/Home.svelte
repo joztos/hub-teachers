@@ -1,6 +1,6 @@
 <div class="w-full">
 	<div class="text-center md:text-left font-bold text-slate-200 text-4xl md:text-5xl mb-8 md:mb-16 w-full">
-	  Genera tu planeación <br class="hidden md:block" /> de clase
+	  Herramientas AI <br class="hidden md:block" /> para el profesor
 	  <br class="hidden md:block" /> con Navi AI
 	</div>
 	<div class="flex flex-wrap items-center mr-auto">
