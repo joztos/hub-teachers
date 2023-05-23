@@ -48,11 +48,13 @@
 	/**
 	 * @type {string}
 	 */
-	let cinemaType = 'tv show';
+	
+	let type = 'student lesson';
 	/**
 	 * @type {Array<string>}
 	 */
 	let selectedCategories = [];
+	let GradeLevel = "1st grade" ;
 	let specificDescriptors = '';
 
 	async function search() {
@@ -62,24 +64,17 @@
 		endStream = false;
 		loading = true;
 
-		let fullSearchCriteria = `Give me a list of 5 ${cinemaType} recommendations ${
-			selectedCategories ? `that fit all of the following categories: ${selectedCategories}` : ''
-		}. ${
-			specificDescriptors
-				? `Make sure it fits the following description as well: ${specificDescriptors}.`
-				: ''
-		} ${
-			selectedCategories || specificDescriptors
-				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${cinemaType}'s that I might like.`
-				: ''
-		} Please return this response as a numbered list with the ${cinemaType}'s title, followed by a colon, and then a brief description of the ${cinemaType}. There should be a line of whitespace between each item in the list.`;
-		const response = await fetch('/api/getRecommendation', {
-			method: 'POST',
-			body: JSON.stringify({ searched: fullSearchCriteria }),
-			headers: {
-				'content-type': 'application/json'
-			}
-		});
+		let fullSearchCriteria = `Give me a lesson plan with the following 5 lesson plan subcategories (learning objetive, Resources, Lesson Body, Activities,Vocabulary) about ${specificDescriptors}. Please return the lesson plan response as a numbered list with the subcategories of the lesson plan, and then a description of each subcategory. There should be a line of whitespace between each item in the list. I am going to create a lesson plan generator.`;
+
+const response = await fetch('/api/getRecommendation', {
+    method: 'POST',
+    body: JSON.stringify({ searched: fullSearchCriteria }),
+    headers: {
+        'content-type': 'application/json'
+    }
+});
+
+
 
 		if (response.ok) {
 			try {
@@ -114,7 +109,7 @@
 		recommendations = [];
 		searchResponse = '';
 		endStream = false;
-		cinemaType = 'tv show';
+		GradeLevel = '1st grade';
 		selectedCategories = [];
 		specificDescriptors = '';
 	}
@@ -151,7 +146,7 @@
 			<div in:fade class="w-full max-w-4xl mx-auto">
 				<div class="w-full mb-8">
 					<Form
-						bind:cinemaType
+						bind:GradeLevel
 						bind:selectedCategories
 						bind:loading
 						bind:specificDescriptors
