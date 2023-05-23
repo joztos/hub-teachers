@@ -4,16 +4,16 @@
 	  <br class="hidden md:block" /> con Navi AI
 	</div>
 	<div class="flex flex-wrap items-center mr-auto">
-	  <button on:click class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 mr-8">
+	  <a href="https://demoai.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 mr-8">
 		Generador Planeación de Clase
-	  </button>
-	  <a href="https://www.navi-ia.com/" target="_blank" class="w-full md:w-auto text-center bg-white/20 hover:bg-white/50 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
+	  </a>
+	  <a href="https://www.navi-ia.com/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
 		Generador de Articulos
 	  </a>
-	  <a href="https://www.navi-ia.digital/" target="_blank" class="w-full md:w-auto text-center bg-gray-600 hover:bg-gray-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 ml-8">
+	  <a href="https://demoai2.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 ml-8">
 		Navi Tutor Socrático
 	  </a>
-	  <a href="https://demoai3.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-blue-500 hover:bg-blue-600 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
+	  <a href="https://demoai3.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
 		Chatea con tu libro
 	  </a>
 	</div>
