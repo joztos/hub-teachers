@@ -7,7 +7,7 @@
 	  <a href="https://demoai.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 mr-8">
 		Generador Planeación de Clase
 	  </a>
-	  <a href="https://www.navi-ia.com/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
+	  <a href="https://genartnav.vercel.app/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
 		Generador de Articulos
 	  </a>
 	  <a href="https://demoai2.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 ml-8">
