@@ -16,6 +16,9 @@
 	  <a href="https://demoai3.samasat.info/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6">
 		Chatea con tu libro
 	  </a>
+	  <a href="https://generador-preguntas.vercel.app/" target="_blank" class="w-full md:w-auto text-center bg-pink-600 hover:bg-pink-700 mb-4 flex-none rounded-full text-white font-medium py-3 px-6 ml-8">
+		Navi Pregunta
+	  </a>
 	</div>
   </div>
   
